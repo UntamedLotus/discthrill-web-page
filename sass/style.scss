@@ -1,0 +1,262 @@
+@import "var";
+@import "mix";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $main-font;
+  line-height: 1;
+  font-weight: 400;
+  color: $gray-scale1;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  @include layout;
+
+  .logo {
+    height: 6rem;
+    width: 17rem;
+  }
+}
+
+/* NAVIGATION COMPONENT */
+
+nav {
+  @include navbase;
+}
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3.2rem;
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    display: inline-block;
+
+    text-decoration: none;
+    color: $shade-cl3;
+    font-weight: 500;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+  }
+
+  .main-nav-link:hover,
+  .main-nav-link:active {
+    color: $shade-cl5;
+    background-color: $tint-fade3;
+    padding: 1.6rem 3.2rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+/* HEADER COMPONENT */
+header {
+  position: relative;
+}
+
+.header-container {
+  @include header-container;
+
+  h1 {
+    @include primary;
+  }
+
+  p {
+    @include para;
+  }
+}
+
+/* SERVICE SECTION */
+
+.grid {
+  @include grid;
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.service {
+  @include layout;
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+}
+
+.service h3 {
+  @include tertiary;
+  align-self: center;
+  justify-self: center;
+}
+
+.service-component {
+  text-align: center;
+
+  .service-box {
+    background-color: $tint-fadebg;
+    padding: 2.5rem 2rem;
+    border-radius: 6px;
+    transition: all 0.4s;
+  }
+
+  .service-box:hover {
+    transform: translateY(-1.2rem);
+    box-shadow: 0 3.2rem 6.4rem rgba($black, 0.06);
+  }
+
+  .service-icon {
+    @include icon-base;
+    @include icon;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    color: $shade-cl4;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1.6rem;
+  }
+
+  .service-description {
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+}
+
+.grid--3-cols {
+  @include threegrid;
+}
+
+.grid-cols--gap {
+  column-gap: 3.2rem;
+}
+
+/* COURSE SECTION */
+
+.courses {
+  background-color: $tint-fadebg;
+  padding: 7rem;
+  position: relative;
+}
+
+.course-component {
+  @include layout;
+
+  h3 {
+    @include tertiary;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+
+  .course-box {
+    @include courseBox;
+  }
+
+  .course-img {
+    width: 33.2rem;
+    height: 22.4rem;
+    border-radius: 7px;
+    transition: all 0.4s;
+  }
+
+  .course-img:hover {
+    transform: scale(1.1);
+  }
+
+  .course-name {
+    @include majorpara;
+  }
+}
+
+/* BUTTON COMPONENT */
+
+.btn {
+  @include btnstyle;
+  &:hover {
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1.6rem 3.2rem;
+    background-color: $tint-fade4;
+  }
+}
+
+/* FOOTER COMPONENT */
+.footer {
+  background-color: $tint-fadebg;
+  height: 30rem;
+  margin-top: 20rem;
+  position: relative;
+
+  .footer-container {
+    @include layout;
+    height: 30rem;
+    width: 80rem;
+    background-color: $shade-cl2;
+    color: $tint-fadebg;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -85%);
+    border-radius: 7px;
+
+    .footer-sec {
+      display: grid;
+      grid-template-columns: 1fr;
+      margin-top: 5rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+
+      .social-links {
+        list-style: none;
+        display: flex;
+        gap: 2.4rem;
+        position: absolute;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, -50%);
+      }
+
+      .social-icon {
+        @include icon-base;
+        color: $tint-fadebg;
+      }
+
+      .authority {
+        margin-top: 10rem;
+      }
+
+      .copyright {
+        @include footer-font-base;
+      }
+
+      .footer-heading {
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      .address {
+        @include footer-font-base;
+        font-style: normal;
+        margin-bottom: 2.4rem;
+        color: $tint-fadebg;
+      }
+
+      .notice {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
